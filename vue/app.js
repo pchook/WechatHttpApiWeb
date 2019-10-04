@@ -95,7 +95,7 @@ new Vue({
             } else {
                 data = await json('/send', { wxid: this.formItem.wxid, msg: this.formItem.msg })
             }
-            if (data.msg) return this.$Message.info(data.msg);
+            if (!data.wxid) return this.$Message.info('发送失败:'+data.msg);
             this.$Message.info('发送成功');
         }
         , getMsg: async function () {
@@ -107,14 +107,14 @@ new Vue({
         }
         , getUser: async function () {
             let data
-            data = await json('/msg')
+            data = await json('/user')
             if (!data[0]) return this.$Message.info('未获取到通讯录')
             this.data1 = data;
         }
         , getGroup: async function () {
             let data
             if (!this.formItem.groupid) return this.$Message.info('请填写 群WXID');
-            data = await json('/msg')
+            data = await json('/group')
             if (!data[0]) return this.$Message.info('未找到群 ' + this.formItem.groupid)
             let text = JSON.stringify(data, null, 4)
             this.$Message.info('<pre>' + text + '</pre>')
