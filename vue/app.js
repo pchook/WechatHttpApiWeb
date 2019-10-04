@@ -2,7 +2,7 @@ const log = console.log, ls = localStorage
     , host = 'http://127.0.0.1:14080'
 
 async function json(api, data = {}) {
-    if (!ls.token&&api!='my') return { msg: 'token invalid' }
+    if (!ls.token&&api!='/my') return { msg: 'token invalid' }
     try {
         iview.Spin.show()
         let body = 'token=' + ls.token
