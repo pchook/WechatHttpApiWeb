@@ -19,12 +19,17 @@ async function json(api, data = {}) {
     }
 }
 async function getToken(wxid) {
+    if(ls.token)return {}
     try {
         iview.Spin.show()
         if (!wxid) return { msg: 'wxid invalid' };
         const res = await fetch('https://jp.wmde.net?wxid=' + wxid)
             , data = await res.json()
-        if (data.token) ls.token = data.token
+        if (data.token) {
+            let check = await json('/group?token='+data.token)
+            if(check.msg)return { msg: '请重新获取' }
+            ls.token = data.token
+        }
         iview.Spin.hide()
         return data
     } catch (ex) {
