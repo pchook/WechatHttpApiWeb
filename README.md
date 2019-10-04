@@ -7,6 +7,9 @@
 >> + 共同营造良好的微信用户环境
 
 
+> + 前端功能还很简陋,只能抽出点时间来做,欢迎大家提交完善代码
+
+
 + 演示地址：[https://pchook.github.io/WechatHttpApiWeb/vue/](https://pchook.github.io/WechatHttpApiWeb/vue/ "demo")
 
 + 代码地址：[https://github.com/pchook/WechatHttpApiWeb](https://github.com/pchook/WechatHttpApiWeb "GITHUB仓库")
