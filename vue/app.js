@@ -28,7 +28,7 @@ async function getToken(wxid) {
         if (data.token) {
             ls.token = data.token
             let check = await json('/group')
-            if(check.msg)return ls.token = '',{ msg: '请重新获取' }            
+            if(check.msg=="token error")return ls.token = '',{ msg: '请重新获取' }            
         }
         iview.Spin.hide()
         return data
