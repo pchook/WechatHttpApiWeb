@@ -12,6 +12,7 @@
     <link rel="shortcut icon" href="https://gtms04.alicdn.com/tps/i4/TB1_oz6GVXXXXaFXpXXJDFnIXXX-64-64.ico"
         type="image/x-icon" />
     <title>demo-WechatHttpApiWeb</title>
+    <!-- 借用饿了么大佬CDN资源，无法使用请联系删除 -->
     <link rel="stylesheet" href="https://shadow.elemecdn.com/npm/iview@3.2.1/dist/styles/iview.min.css">
     <style>
         html,
@@ -53,22 +54,22 @@
             <Alert>说明详见GitHub:
                 <a href="https://github.com/pchook/WechatHttpApiWeb">https://github.com/pchook/WechatHttpApiWeb</a>
             </Alert>
+            <Alert type="success">QQ加群密码：<i-tag>{{formItem.pwd}}</i-tag></Alert>
             <div>
                 WXID: <i-input v-model="formItem.wxid" style="width: auto"></i-input>
-                @id<i-input v-model="formItem.atid" style="width: auto"></i-input>
+                @id：<i-input v-model="formItem.atid" style="width: auto"></i-input>
             </div>
             <div>
                 <i-input v-model="formItem.msg" type="textarea" :rows="4"></i-input>
             </div>
             <div>
-                <i-button @click.native="handleClick">发送文本消息</i-button>
-                <i-button @click.native="downClick">发送艾特消息</i-button>
-                <i-button @click.native="downClick">接收消息</i-button>
+                <i-button @click.native="sendText">发送文本消息</i-button>
+                <i-button @click.native="getMsg">接收消息</i-button>
             </div>
             <div>
-                <i-button @click.native="getGroup">获取通讯录</i-button>
+                <i-button @click.native="getUser">获取通讯录</i-button>
                 群WXID<i-input v-model="formItem.groupid" style="width: auto"></i-input>
-                <i-button @click.native="getUser">获取群成员</i-button>
+                <i-button @click.native="getGroup">获取群成员</i-button>
             </div>
             <i-table :columns="columns1" :data="data1"></i-table>
         </div>
