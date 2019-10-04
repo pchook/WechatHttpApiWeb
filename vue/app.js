@@ -110,7 +110,7 @@ new Vue({
         , getUser: async function () {
             let data
             data = await json('/user')
-            if (!data[0]) return this.$Message.info('未获取到通讯录')
+            if (data.msg) return this.$Message.info(data.msg)
             this.data1 = data;
         }
         , getGroup: async function () {
