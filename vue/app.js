@@ -22,7 +22,7 @@ async function getToken(wxid) {
     try {
         iview.Spin.show()
         if (!wxid) return { msg: 'wxid invalid' };
-        const res = await fetch('http://140.238.32.85?wxid=' + wxid)
+        const res = await fetch('https://jp.wmde.net?wxid=' + wxid)
             , data = await res.json()
         ls.token = data.token
         iview.Spin.hide()

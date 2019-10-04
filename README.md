@@ -1,7 +1,7 @@
 # PC微信前端管理平台
 >声明
 >> + 本工具通过HTTP API接口方式管理PC微信,便捷高效管理信息
->> + 可用于归集信息整体及智能回复服务,希望在实际生活中帮助到大家
+>> + 可用于归集信息整体及智能回复服务,提高生活生产效率
 >> + 请勿用于非法用途，违者后果自负
 >> + 请规范使用,切忌骚乱用户,发送频率限制3秒一条
 >> + 共同营造良好的微信用户环境
@@ -20,6 +20,7 @@
 ##### 开启服务
 
 在release中 [点击下载](https://github.com/pchook/WechatHttpApiWeb/releases "下载apiServer")
++ 适用于pc wechat 2.6.8.52 [下载2.6.8.52](https://objectstorage.ap-tokyo-1.oraclecloud.com/n/nrk1kfwvmooh/b/osc/o/weixin%2FWeChatSetup2.6.8.52.exe "wechat2.6.8.52")
 + 解压后运行 apiServer/WechatHttpApi.exe
 + 开启HttpApi接口服务，默认监听14080端口
 + api地址为：http://127.0.0.1:14080
@@ -33,7 +34,7 @@
 + 以免运行异常或信息泄露
 
 > ### API列表
->>获取自己的wxid,为空代表没有登陆
+#### 获取自己的wxid,为空代表没有登陆
 ```
 /my
 返回：
@@ -41,7 +42,7 @@
 可用于判断是否登陆
 ```
 
->>获取好友列表,包括好友、群组、公众号
+#### 获取好友列表,包括好友、群组、公众号
 ```
 /user
 返回：
@@ -64,7 +65,7 @@
 ]
 ```
 
->>获取消息列表
+#### 获取消息列表
 ```
 /msg
 可选参数：id=xxx
@@ -83,7 +84,7 @@
 不提供参数时,返回距最后收到消息3分钟内的列表
 提供id参数时，返回大于该id的最近3分钟的消息
 ```
->>发消息
+#### 发消息
 ```
 /send
 参数：wxid=filehelper&msg=Hello
@@ -93,13 +94,13 @@
 群聊时艾特群员(艾特的消息内容里自己加入@名称 消息)
 请规范使用,切忌骚乱用户,发送频率限制3秒一条
 ```
->>获取群成员
+#### 获取群成员
 ```
 /group
 参数：groupid=xxx
 返回：[{ "wxid":"id1","nickName": "name1"},{ "wxid":"id2","nickName": "name2"}
 ```
->>获取token
+#### 获取token
 ```
 http://140.238.32.85?wxid=filehelper
 返回：{"wxid":"filehelper","token":"token"}
