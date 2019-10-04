@@ -1,36 +1,38 @@
-# HttpApiHtml
-## Wechat Http Api Html
-### PC微信前端管理平台
+# PC微信前端管理平台
 >声明
->> 本工具通过HTTP API接口方式管理PC微信,方便管理,提高效率
+>> 本工具通过HTTP API接口方式管理PC微信,便捷高效管理信息
 >> 可用于归集信息整体及智能回复服务,希望在实际生活中帮助到大家
 >> 请勿用于非法用途，违者后果自负
 >> 请规范使用,切忌骚乱用户,发送频率限制3秒一条
 >> 共同营造良好的微信用户环境
 
- 演示地址：[https://pchook.github.io/WechatHttpApiWeb/vue/](https://pchook.github.io/WechatHttpApiWeb/vue/ "demo")
-代码地址：[https://github.com/pchook/WechatHttpApiWeb](https://github.com/pchook/WechatHttpApiWeb "GITHUB仓库")
 
->演示代码为前端界面Demo,有懂前端的欢迎提交代码美化界面及增加功能
->如有BUG反馈建议可加入群聊交流：密码在演示地址里找
++ 演示地址：[https://pchook.github.io/WechatHttpApiWeb/vue/](https://pchook.github.io/WechatHttpApiWeb/vue/ "demo")
 
++ 代码地址：[https://github.com/pchook/WechatHttpApiWeb](https://github.com/pchook/WechatHttpApiWeb "GITHUB仓库")
 
-###接口服务使用文档
-开启服务
-```
-运行 apiServer/WechatHttpApi.exe
-开启HttpApi接口服务，默认监听14080端口
-api地址为：http://127.0.0.1:14080
-无法访问代表没有开启服务
-```
-说明
-```
-请放心使用,服务位于本机,与作者无任何通讯
-请开启相关防火墙以防止他人访问本机服务
-请确认从GitHub下载服务工具,勿使用其他修改破解版本
-以免运行异常或信息泄露
-```
->###API列表
+> + 演示代码为前端界面Demo,有懂前端的欢迎提交代码美化界面及增加功能
+> + 如有BUG反馈建议可加入群聊交流：788266027 密码在演示地址里找
+
+[点击链接加入群聊【微信前端管理平台】](https://jq.qq.com/?_wv=1027&k=5tzz5cr "QQ群")
+
+### 接口服务使用文档
+##### 开启服务
+
+在release中 [点击下载](https://github.com/pchook/WechatHttpApiWeb/releases "下载apiServer")
++ 解压后运行 apiServer/WechatHttpApi.exe
++ 开启HttpApi接口服务，默认监听14080端口
++ api地址为：http://127.0.0.1:14080
++ 无法访问代表没有开启服务
+
+##### 说明
+
++ 请放心使用,服务位于本机,与作者无任何通讯
++ 请开启相关防火墙以防止他人访问本机服务
++ 请确认从GitHub下载服务工具,勿使用其他修改破解版本
++ 以免运行异常或信息泄露
+
+> ### API列表
 >>获取自己的wxid,为空代表没有登陆
 ```
 /my
@@ -104,8 +106,8 @@ http://140.238.32.85?wxid=filehelper
 获取token有效期3天
 ```
 
-##附件
-附件：
+## 附件
+
 1. 消息类型
 
 |type|说明|
@@ -128,5 +130,3 @@ http://140.238.32.85?wxid=filehelper
 |9999|SYSNOTICE|
 |10000|系统消息|
 |10002|系统操作消息|
-
-//https://www.mdeditor.com/

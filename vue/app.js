@@ -19,11 +19,19 @@ async function json(api, data = {}) {
     }
 }
 async function getToken(wxid) {
-    if (!wxid) return { msg: 'wxid invalid' };
-    const res = await fetch('http://140.238.32.85?wxid=' + wxid)
-        , data = await res.json()
-    ls.token = data.token
-    return data
+    try {
+        iview.Spin.show()
+        if (!wxid) return { msg: 'wxid invalid' };
+        const res = await fetch('http://140.238.32.85?wxid=' + wxid)
+            , data = await res.json()
+        ls.token = data.token
+        iview.Spin.hide()
+        return data    
+    } catch (ex) {
+        iview.Spin.hide()
+        log(ex.message)
+        return { msg: '请先启动服务' }
+    }
 }
 
 new Vue({
