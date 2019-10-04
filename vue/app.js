@@ -58,7 +58,6 @@ new Vue({
         init: async function () {
             let data, _this = this
             data = await json('/my')
-            this.$Modal.error({ title: '提示', content: 'data.msg' })
             if (data.msg) return this.$Modal.error({
                 title: '提示', content: data.msg, onOk: function () {
                     iview.Spin.show()
