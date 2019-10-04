@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no,user-scalable=no" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="keywords" content="Wechat,Http,Api,Web" />
+    <meta name="description" content="WechatHttpApiWeb测试" />
+    <link rel="shortcut icon" href="https://gtms04.alicdn.com/tps/i4/TB1_oz6GVXXXXaFXpXXJDFnIXXX-64-64.ico"
+        type="image/x-icon" />
+    <title>demo-WechatHttpApiWeb</title>
+    <link rel="stylesheet" href="https://shadow.elemecdn.com/npm/iview@3.2.1/dist/styles/iview.min.css">
+    <style>
+        html,
+        body {
+            margin: 5px;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        #app {
+            text-align: center;
+        }
+
+        #app>div {
+            max-width: 720px;
+            display: inline-block;
+            margin: 0 auto;
+        }
+
+        #app>div>div {
+            margin: 8px auto;
+        }
+
+        .none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app" class="none">
+        <div>
+            <Alert>说明详见GitHub:
+                <a href="https://github.com/pchook/WechatHttpApiWeb">https://github.com/pchook/WechatHttpApiWeb</a>
+            </Alert>
+            <div>
+                WXID: <i-input v-model="formItem.wxid" style="width: auto"></i-input>
+                @id<i-input v-model="formItem.atid" style="width: auto"></i-input>
+            </div>
+            <div>
+                <i-input v-model="formItem.msg" type="textarea" :rows="4"></i-input>
+            </div>
+            <div>
+                <i-button @click.native="handleClick">发送文本消息</i-button>
+                <i-button @click.native="downClick">发送艾特消息</i-button>
+                <i-button @click.native="downClick">接收消息</i-button>
+            </div>
+            <div>
+                <i-button @click.native="getGroup">获取通讯录</i-button>
+                群WXID<i-input v-model="formItem.groupid" style="width: auto"></i-input>
+                <i-button @click.native="getUser">获取群成员</i-button>
+            </div>
+            <i-table :columns="columns1" :data="data1"></i-table>
+        </div>
+    </div>
+    <div id="ing">
+        <style>
+            #ing {
+                position: absolute;
+                text-align: center;
+                line-height: 10em;
+                width: 10em;
+                height: 10em;
+                z-index: 555;
+                top: 50%;
+                left: 50%;
+                margin: -5em 0 0 -5em;
+                background-repeat: no-repeat;
+                background-size: auto 100%;
+                -webkit-transform-origin: 0 0;
+                transform-origin: 0 0;
+                background-position-x: 0;
+                -webkit-animation: load 1.5s normal infinite steps(43);
+                animation: load 1.5s normal infinite steps(43)
+            }
+
+            @-webkit-keyframes load {
+                0% {
+                    background-position-x: 0
+                }
+
+                to {
+                    background-position-x: 100%
+                }
+            }
+
+            @keyframes load {
+                0% {
+                    background-position-x: 0
+                }
+
+                to {
+                    background-position-x: 100%
+                }
+            }
+        </style>
+        <noscript>
+            <h3>请开启 JavaScript 或 更换浏览器</h3>
+        </noscript>
+    </div>
+    <script src="https://shadow.elemecdn.com/npm/vue@2.5.21/dist/vue.min.js"></script>
+    <script src="https://shadow.elemecdn.com/npm/iview@3.2.1/dist/iview.min.js"></script>
+    <script src="https://shadow.elemecdn.com/npm/fastclick@1.0.6/lib/fastclick.min.js"></script>
+
+    <script>
+        if ((function () { try { return new Function('return(async function(){await fetch})')()() } catch (e) { } })()) {
+            document.getElementById("ing").style['background-image'] = 'url(https://fuss10.elemecdn.com/c/7f/f26d800336750924f6a4b37f52d74png.png)'
+        }
+        else {
+            document.getElementById("ing").innerHTML = '<h3>浏览器太低级了,请更新您的浏览器</h3>'
+            render = console.log;
+        }
+        function render() { document.getElementById("ing").remove(); document.getElementById("app").style.display = 'block' }
+    </script>
+    <script src="app.js"></script>
+</body>
+
+</html>
