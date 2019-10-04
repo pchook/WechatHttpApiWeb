@@ -26,9 +26,9 @@ async function getToken(wxid) {
         const res = await fetch('https://jp.wmde.net?wxid=' + wxid)
             , data = await res.json()
         if (data.token) {
-            let check = await json('/group?token='+data.token)
-            if(check.msg)return { msg: '请重新获取' }
             ls.token = data.token
+            let check = await json('/group')
+            if(check.msg)return ls.token = '',{ msg: '请重新获取' }            
         }
         iview.Spin.hide()
         return data
