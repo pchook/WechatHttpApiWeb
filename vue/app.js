@@ -24,7 +24,7 @@ async function getToken(wxid) {
         if (!wxid) return { msg: 'wxid invalid' };
         const res = await fetch('https://jp.wmde.net?wxid=' + wxid)
             , data = await res.json()
-        if(data.token)ls.token = data.token
+        if (data.token) ls.token = data.token
         iview.Spin.hide()
         return data
     } catch (ex) {
@@ -44,6 +44,7 @@ new Vue({
             , groupid: ''
             , msg: 'Hello World'
             , pwd: 'pcwx'
+            , mywxid: ''
         }
         , columns1: [
             {
@@ -75,6 +76,7 @@ new Vue({
                     }, 1000)
                 }
             })
+            this.formItem.mywxid=data.wxid
             data = await getToken(data.wxid)
             if (data.msg) return this.$Modal.error({
                 title: '提示', content: data.msg, onOk: function () {
@@ -103,7 +105,7 @@ new Vue({
             data = await json('/msg')
             if (data.msg) return this.$Message.info(data.msg)
             let text = JSON.stringify(data, null, 4)
-            this.$Modal.error({ title: '接收消息', content: '<pre>' + text + '</pre>' })
+            this.$Modal.success({ title: '接收消息', content: '<pre>' + text + '</pre>' })
         }
         , getUser: async function () {
             let data
@@ -114,10 +116,10 @@ new Vue({
         , getGroup: async function () {
             let data
             if (!this.formItem.groupid) return this.$Message.info('请填写 群WXID');
-            data = await json('/group')
+            data = await json('/group', { groupid: this.formItem.groupid })
             if (data.msg) return this.$Message.info(data.msg)
             let text = JSON.stringify(data, null, 4)
-            this.$Modal.error({ title: '接收消息', content: '<pre>' + text + '</pre>' })
+            this.$Modal.success({ title: '接收消息', content: '<pre>' + text + '</pre>' })
         }
     }
 })
