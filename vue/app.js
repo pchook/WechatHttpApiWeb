@@ -47,7 +47,7 @@ new Vue({
             wxid: 'filehelper'
             , atid: ''
             , groupid: ''
-            , msg: 'Hello World'
+            , msg: '@最好的你 Hello World'
             , pwd: 'pcwx'
             , mywxid: ''
         }
