@@ -52,7 +52,7 @@
             <Alert type="success">hi,欢迎您：<i-tag>{{formItem.mywxid}}</i-tag> QQ加群密码：<i-tag>{{formItem.pwd}}</i-tag></Alert>
             <div>
                 WXID: <i-input v-model="formItem.wxid" style="width: auto"></i-input>
-                @id：<i-input v-model="formItem.atid" style="width: auto"></i-input>
+                @wxid：<i-input v-model="formItem.atid" placeholder="群里的人的wxid" style="width: auto"></i-input>
             </div>
             <div>
                 <i-input v-model="formItem.msg" type="textarea" :rows="4"></i-input>
