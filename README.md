@@ -25,7 +25,7 @@
 + 适用于pc wechat 2.6.8.52 [下载2.6.8.52](https://objectstorage.ap-tokyo-1.oraclecloud.com/n/nrk1kfwvmooh/b/osc/o/weixin%2FWeChatSetup2.6.8.52.exe "wechat2.6.8.52")
 + [在 release 下载 apiServer](https://github.com/pchook/WechatHttpApiWeb/releases "下载apiServer")
 + 解压运行WechatHttpApi.exe,默认监听14080端口,开启成功
-+ api地址为：http://127.0.0.1:14080
++ api地址为：[http://127.0.0.1:14080](http://127.0.0.1:14080 "测试接口")
 + 无法访问代表没有开启服务
 
 ##### 说明
@@ -103,7 +103,7 @@
 ```
 #### 获取token
 ```
-http://140.238.32.85?wxid=filehelper
+[http://140.238.32.85?wxid=filehelper](http://140.238.32.85?wxid=filehelper "获取token")
 返回：{"wxid":"filehelper","token":"token"}
 获取token有效期3天
 ```
