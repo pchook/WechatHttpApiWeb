@@ -15,7 +15,7 @@ async function json(api, data = {}) {
     } catch (ex) {
         iview.Spin.hide()
         log(ex.message)
-        return { msg: '请先启动服务' }
+        return { msg: '请先启动服务,点击查看文档如何开启服务<br/><a href="https://pchook.github.io/WechatHttpApiWeb/">https://pchook.github.io/WechatHttpApiWeb/</a>' }
     }
 }
 async function getToken(wxid) {
@@ -28,14 +28,14 @@ async function getToken(wxid) {
         if (data.token) {
             ls.token = data.token
             let check = await json('/group')
-            if(check.msg=="token error")return ls.token = '',{ msg: '请重新获取' }            
+            if(check.msg=="token error")return ls.token = '',{ msg: '请点击确定重新获取' }            
         }
         iview.Spin.hide()
         return data
     } catch (ex) {
         iview.Spin.hide()
         log(ex.message)
-        return { msg: '请先启动服务' }
+        return ls.token = '',{ msg: '请点击确定重新获取' }            
     }
 }
 
