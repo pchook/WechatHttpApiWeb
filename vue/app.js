@@ -2,7 +2,7 @@ const log = console.log, ls = localStorage
     , host = 'http://127.0.0.1:14080'
 
 async function json(api, data = {}) {
-    if (!ls.token&&api!='/my') return { msg: 'token invalid' }
+    if (!ls.token && api != '/my') return { msg: 'token invalid' }
     try {
         iview.Spin.show()
         let body = 'token=' + ls.token
@@ -19,7 +19,7 @@ async function json(api, data = {}) {
     }
 }
 async function getToken(wxid) {
-    if(ls.token)return {}
+    if (ls.token) return {}
     try {
         iview.Spin.show()
         if (!wxid) return { msg: 'wxid invalid' };
@@ -28,14 +28,14 @@ async function getToken(wxid) {
         if (data.token) {
             ls.token = data.token
             let check = await json('/group')
-            if(check.msg=="token error")return ls.token = '',{ msg: '请点击确定重新获取' }            
+            if (check.msg == "token error") return ls.token = '', { msg: '请点击确定重新获取' }
         }
         iview.Spin.hide()
         return data
     } catch (ex) {
         iview.Spin.hide()
         log(ex.message)
-        return ls.token = '',{ msg: '请点击确定重新获取' }            
+        return ls.token = '', { msg: '请点击确定重新获取' }
     }
 }
 
@@ -80,7 +80,15 @@ new Vue({
                     }, 1000)
                 }
             })
-            this.formItem.mywxid=data.wxid
+            if (!data.wxid) return this.$Modal.error({
+                title: '提示', content: '请先登陆PC微信', onOk: function () {
+                    iview.Spin.show()
+                    setTimeout(function () {
+                        _this.init()
+                    }, 1000)
+                }
+            })
+            this.formItem.mywxid = data.wxid
             data = await getToken(data.wxid)
             if (data.msg) return this.$Modal.error({
                 title: '提示', content: data.msg, onOk: function () {
