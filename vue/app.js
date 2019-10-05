@@ -10,8 +10,9 @@ async function json(api, data = {}) {
         const res = await fetch(host + api, {
             method: 'post', body
         })
+        let d= await res.json()
         iview.Spin.hide()
-        return await res.json()
+        return d
     } catch (ex) {
         iview.Spin.hide()
         log(ex.message)
