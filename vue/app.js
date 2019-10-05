@@ -10,9 +10,8 @@ async function json(api, data = {}) {
         const res = await fetch(host + api, {
             method: 'post', body
         })
-        let d= await res.json()
         iview.Spin.hide()
-        return d
+        return await res.json()
     } catch (ex) {
         iview.Spin.hide()
         log(ex.message)
@@ -77,7 +76,6 @@ new Vue({
                 title: '提示', content: data.msg, onOk: function () {
                     iview.Spin.show()
                     setTimeout(function () {
-                        iview.Spin.hide()
                         _this.init()
                     }, 1000)
                 }
@@ -88,7 +86,6 @@ new Vue({
                 title: '提示', content: data.msg, onOk: function () {
                     iview.Spin.show()
                     setTimeout(function () {
-                        iview.Spin.hide()
                         _this.init()
                     }, 1000)
                 }
