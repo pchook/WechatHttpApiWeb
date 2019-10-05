@@ -22,10 +22,9 @@
 ### 接口服务使用文档
 ##### 开启服务
 
-在release中 [点击下载](https://github.com/pchook/WechatHttpApiWeb/releases "下载apiServer")
 + 适用于pc wechat 2.6.8.52 [下载2.6.8.52](https://objectstorage.ap-tokyo-1.oraclecloud.com/n/nrk1kfwvmooh/b/osc/o/weixin%2FWeChatSetup2.6.8.52.exe "wechat2.6.8.52")
-+ 解压后运行 apiServer/WechatHttpApi.exe
-+ 开启HttpApi接口服务，默认监听14080端口
++ 在 [release 下载](https://github.com/pchook/WechatHttpApiWeb/releases "下载apiServer") apiServer
++ 解压运行WechatHttpApi.exe,默认监听14080端口,开启成功
 + api地址为：http://127.0.0.1:14080
 + 无法访问代表没有开启服务
 
