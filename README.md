@@ -1,9 +1,9 @@
 # PC微信前端管理平台
 >声明
 >> + 本工具通过HTTP API接口方式管理PC微信,便捷高效管理信息
->> + 可用于归集信息整体及智能回复服务,提高生活生产效率
->> + 请勿非法使用，违者后果自负
+>> + 可用于归集信息整体及智能回复服务,改善民生,提高生活生产效率
 >> + 请规范使用,切忌骚乱用户,发送频率限制3秒一条
+>> + 请勿非法使用,违者后果自负
 >> + 共同营造良好的微信用户环境
 
 
@@ -23,8 +23,15 @@
 ##### 开启服务
 
 + 适用于pc wechat 2.6.8.52 [下载2.6.8.52](https://objectstorage.ap-tokyo-1.oraclecloud.com/n/nrk1kfwvmooh/b/osc/o/weixin%2FWeChatSetup2.6.8.52.exe "wechat2.6.8.52")
+
+> 方式一
++ [在 release 下载 version](https://github.com/pchook/WechatHttpApiWeb/releases "下载version")
++ 解压后将 version.dll 放入微信安装目录,手动运行微信即可
++ 此种方式每打开一个微信就会自动开启一个服务,开启后会自动打开服务地址
+
+> 方式二
 + [在 release 下载 apiServer](https://github.com/pchook/WechatHttpApiWeb/releases "下载apiServer")
-+ 解压运行WechatHttpApi.exe,默认监听14080端口,开启成功
++ 解压后手动运行WechatHttpApi.exe开启服务,默认监听14080端口,开启成功
 + api地址为：[http://127.0.0.1:14080](http://127.0.0.1:14080 "测试接口")
 + 无法访问代表没有开启服务
 
@@ -75,7 +82,7 @@
     {
         "id": 1,//每次启动时从1开始计算
         "time": 1570197934,//消息时间
-        "type": 1,//类型，见底下附录，目前只解析文本
+        "type": 1,//类型,见底下附录,目前只解析文本
         "wxid": "weixin",//发送方,系统、群、公众号、好友等
         "sender": "",//群聊时的发送人
         "msg": "Hello World",//消息内容,类型为1时文本
@@ -83,7 +90,7 @@
     }
 ]
 不提供参数时,返回距最后收到消息3分钟内的列表
-提供id参数时，返回大于该id的最近3分钟的消息
+提供id参数时,返回大于该id的最近3分钟的消息
 ```
 #### 发消息
 ```
