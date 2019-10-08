@@ -11,7 +11,7 @@
 
 
 + 演示地址：[https://pchook.github.io/WechatHttpApiWeb/vue/](https://pchook.github.io/WechatHttpApiWeb/vue/ "demo")
-
++ [nodejs无限多开SDK](https://pchook.github.io/WechatHttpApiWeb/nodejs/sdk/ "nodejs sdk")
 + 代码地址：[https://github.com/pchook/WechatHttpApiWeb](https://github.com/pchook/WechatHttpApiWeb "GITHUB仓库")
 
 > + 演示代码为前端界面Demo,有懂前端的欢迎提交代码美化界面及增加功能
