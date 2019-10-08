@@ -109,8 +109,8 @@
 返回：[{ "wxid":"id1","nickName": "name1"},{ "wxid":"id2","nickName": "name2"}
 ```
 #### 获取token
-```
 [http://140.238.32.85?wxid=filehelper](http://140.238.32.85?wxid=filehelper "获取token")
+```
 返回：{"wxid":"filehelper","token":"token"}
 获取token有效期3天
 ```
