@@ -8,26 +8,31 @@ axios.interceptors.response.use(response => response)
 async function run() {
     log('Start')
     while (true) {
-        var i = 0, port = 14080;
+        var i = 0, port = 14080, serverRun = {};
         while (i++ < 3) {
             //服务的会首先使用14080端口,被占用后依次递增
             //如果连续3个端口无法访问就不在继续了
             let p = port++
-            if (!await CheckServer(p)) break//无法连接的端口,跳过
+            if (!await CheckServer(p)) continue//无法连接的端口,跳过
+            serverRun[p] = {}
             let wxid = await CheckLogin(p)
-            if (!wxid) break//检查是否已经登陆了,没登陆跳过
+            if (!wxid) continue//检查是否已经登陆了,没登陆跳过
             if (!mywxs[p]) mywxs[p] = {}
             mywxs[p].wxid = wxid
+            serverRun[p].wxid = wxid
             //获取token,并保存token,已经有了就不需要获取了
             if (!mywxs[p].token) mywxs[p].token = await GetToken(wxid)
-            if (!mywxs[p].token) break
+            if (!mywxs[p].token) continue
             //获取消息
             let datas = await GetMsg(p, mywxs[p].token, mywxs[p].id)
             //正常应该是数组,如果有msg,说明获取消息失败,先清空token试试
-            if (datas.msg) mywxs[p].token = null
+            if (datas.msg) { mywxs[p].token = null; continue }
             //记下最新的id,通过这个id去获取最新消息
             if (datas[0]) mywxs[p].id = datas[0].id, onmsg(datas)
+            serverRun[p].id = mywxs[p].id
+            serverRun[p].num = datas.length
         }
+        log('运行情况', JSON.stringify(serverRun))
         await delay(3000)
     }
 }
