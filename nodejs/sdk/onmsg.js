@@ -7,6 +7,9 @@ function onmsg(datas) {
         log(`收到(${o.wxid})的文本消息`, o.msg)
         write(`[${o.wxid}][${o.sender}]:${o.msg}`)
     }
+    //返回值会在运行情况中的onmsg字段显示
+    //可以返回处理成功的记录等,内容尽量短
+    return '已处理数量:' + datas.length
 }
 //消息写到文件里看看
 function write(msg) {

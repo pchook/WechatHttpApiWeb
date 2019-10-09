@@ -26,11 +26,18 @@ async function run() {
             //获取消息
             let datas = await GetMsg(p, mywxs[p].token, mywxs[p].id)
             //正常应该是数组,如果有msg,说明获取消息失败,先清空token试试
-            if (datas.msg) { mywxs[p].token = null; continue }
+            if (datas.msg) { log(datas.msg); mywxs[p].token = null; continue }
             //记下最新的id,通过这个id去获取最新消息
-            if (datas[0]) mywxs[p].id = datas[0].id, onmsg(datas)
-            serverRun[p].id = mywxs[p].id
-            serverRun[p].num = datas.length
+            //如果刚开始不存在id,忽略之前的消息,取最新的id来
+            serverRun[p].id = mywxs[p].id || 0
+            if (datas[0]) {
+                mywxs[p].id = datas[0].id//最新消息的ID
+                serverRun[p].num = datas.length//此次获取消息的长度
+                serverRun[p].onmsg = `首次运行,忽略最新ID(${mywxs[p].id})之前的消息`
+                if (!serverRun[p].id) continue//如果不存在旧消息id,说明是第一次,忽略运行前的消息     
+                serverRun[p].onmsg = await onmsg(datas)//消息处理结果
+                serverRun[p].id = mywxs[p].id
+            }
         }
         log('运行情况', JSON.stringify(serverRun))
         await delay(3000)
