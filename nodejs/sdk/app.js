@@ -26,6 +26,7 @@ async function run() {
             //获取消息
             let datas = await GetMsg(p, mywxs[p].token, mywxs[p].id)
             //正常应该是数组,如果有msg,说明获取消息失败,先清空token试试
+            if (typeof datas != 'object') { serverRun[p].onmsg = '数据错误'; continue }
             if (datas.msg) { log(datas.msg); mywxs[p].token = null; continue }
             //记下最新的id,通过这个id去获取最新消息
             //如果刚开始不存在id,忽略之前的消息,取最新的id来
